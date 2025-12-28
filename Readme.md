@@ -82,3 +82,6 @@ Content-Type: application/json
 ![alt text](images/img_2.png)
 ## Swagger UI
 ![alt text](images/img_3.png)
+## Affichage de H2 database
+![alt text](images/img_4.png)
+
