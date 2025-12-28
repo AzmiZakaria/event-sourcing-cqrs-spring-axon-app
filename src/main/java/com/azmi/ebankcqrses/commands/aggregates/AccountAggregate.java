@@ -71,5 +71,22 @@ public class AccountAggregate {
         this.id =event.getId();
         this.balance = this.balance + event.getAmount();
     }
-    
+
+    @CommandHandler
+    public void handel(DebitAcoountCommand command) {
+        log.info("DebitAcoountCommand  Received");
+        if(!status.equals(AccountStatus.ACTIVATED)) throw new RuntimeException("Account"+command.getId()+" Status not Activated");
+        if (balance<command.getAmount()) throw new IllegalArgumentException("Balence not sufficent Exception");
+        AggregateLifecycle.apply(new AccountDebitedEvent(
+                command.getId(),
+                command.getAmount(),
+                command.getCurency()
+        ));
+    }
+    @EventSourcingHandler
+    public void on(AccountDebitedEvent event){
+        log.info("AccountDebitedEvent occured");
+        this.id =event.getId();
+        this.balance = this.balance - event.getAmount();
+    }
 }
