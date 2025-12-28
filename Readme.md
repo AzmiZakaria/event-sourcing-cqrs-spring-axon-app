@@ -93,4 +93,8 @@ Content-Type: application/json
 Apres injecter un exemplaire en utisant endpoit add dans swagger
 ![alt text](images/img_6.png)
 
+## Affichage des evenments d'un compte
+![alt text](images/img_7.png)
 
+## Affichage Credit
+![alt text](images/img_8.png)
