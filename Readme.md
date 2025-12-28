@@ -98,3 +98,6 @@ Apres injecter un exemplaire en utisant endpoit add dans swagger
 
 ## Affichage Credit
 ![alt text](images/img_8.png)
+
+## Affichage Debit
+![alt text](images/img_9.png)
