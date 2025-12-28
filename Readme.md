@@ -80,3 +80,5 @@ Content-Type: application/json
 ![alt text](images/img_1.png)
 ## Add Account Command
 ![alt text](images/img_2.png)
+## Swagger UI
+![alt text](images/img_3.png)

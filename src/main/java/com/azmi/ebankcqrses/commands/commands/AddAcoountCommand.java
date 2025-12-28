@@ -9,5 +9,5 @@ public class AddAcoountCommand {
     @TargetAggregateIdentifier
     private String id;
     private double initialBallance;
-    private double cuurency;
+    private String cuurency;
 }
