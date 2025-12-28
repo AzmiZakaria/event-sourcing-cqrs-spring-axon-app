@@ -3,10 +3,7 @@ package com.azmi.ebankcqrses.commands.controllers;
 import com.azmi.ebankcqrses.commands.commands.AddAcoountCommand;
 import com.azmi.ebankcqrses.commands.dtos.AddNewAccountRequestDTO;
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -28,5 +25,9 @@ public class AccountCommandController {
                 request.cuurency()
         ));
         return response;
+    }
+    @ExceptionHandler(Exception.class)
+    public String execptionHandler(Exception exception){
+        return exception.getMessage();
     }
 }
