@@ -2,8 +2,10 @@ package com.azmi.ebankcqrses.commands.controllers;
 
 import com.azmi.ebankcqrses.commands.commands.AddAcoountCommand;
 import com.azmi.ebankcqrses.commands.commands.CreditAcoountCommand;
+import com.azmi.ebankcqrses.commands.commands.DebitAcoountCommand;
 import com.azmi.ebankcqrses.commands.dtos.AddNewAccountRequestDTO;
 import com.azmi.ebankcqrses.commands.dtos.CreditAccountRequestDTO;
+import com.azmi.ebankcqrses.commands.dtos.DebitAccountRequestDTO;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +37,15 @@ public class AccountCommandController {
     @PostMapping("/credit")
     public  CompletableFuture<String> creditAccountCommand(@RequestBody CreditAccountRequestDTO request){
         CompletableFuture<String> response = commandGateway.send(new CreditAcoountCommand(
+                request.accountID(),
+                request.amount(),
+                request.curency()
+        ));
+        return response;
+    }
+    @PostMapping("/debit")
+    public  CompletableFuture<String> debitAccountCommand(@RequestBody DebitAccountRequestDTO request){
+        CompletableFuture<String> response = commandGateway.send(new DebitAcoountCommand(
                 request.accountID(),
                 request.amount(),
                 request.curency()
