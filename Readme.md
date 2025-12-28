@@ -85,3 +85,12 @@ Content-Type: application/json
 ## Affichage de H2 database
 ![alt text](images/img_4.png)
 
+## Postgress DB
+### Configu
+![alt text](images/img_5.png)
+
+### Apercu
+Apres injecter un exemplaire en utisant endpoit add dans swagger
+![alt text](images/img_6.png)
+
+
