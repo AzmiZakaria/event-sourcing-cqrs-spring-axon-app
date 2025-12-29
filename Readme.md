@@ -101,3 +101,8 @@ Apres injecter un exemplaire en utisant endpoit add dans swagger
 
 ## Affichage Debit
 ![alt text](images/img_9.png)
+
+## Package Query
+## Entities
+![alt text](images/img_10.png)
+
