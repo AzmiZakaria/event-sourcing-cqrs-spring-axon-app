@@ -106,3 +106,5 @@ Apres injecter un exemplaire en utisant endpoit add dans swagger
 ## Entities
 ![alt text](images/img_10.png)
 
+## Repository
+![alt text](images/img_11.png)
