@@ -3,11 +3,9 @@ package com.azmi.ebankcqrses.commands.aggregates;
 import com.azmi.ebankcqrses.commands.commands.AddAcoountCommand;
 import com.azmi.ebankcqrses.commands.commands.CreditAcoountCommand;
 import com.azmi.ebankcqrses.commands.commands.DebitAcoountCommand;
+import com.azmi.ebankcqrses.commands.commands.UpdateAcoountStatusCommand;
 import com.azmi.ebankcqrses.commands.enums.AccountStatus;
-import com.azmi.ebankcqrses.commands.events.AccountActivatedEvent;
-import com.azmi.ebankcqrses.commands.events.AccountCreatedEvent;
-import com.azmi.ebankcqrses.commands.events.AccountCreditedEvent;
-import com.azmi.ebankcqrses.commands.events.AccountDebitedEvent;
+import com.azmi.ebankcqrses.commands.events.*;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -88,5 +86,20 @@ public class AccountAggregate {
         log.info("AccountDebitedEvent occured");
         this.id =event.getId();
         this.balance = this.balance - event.getAmount();
+    }
+    @CommandHandler
+    public void handel(UpdateAcoountStatusCommand command) {
+        log.info("DebitAcoountCommand  Received");
+        if(status == command.getStatus()) throw new RuntimeException("This Account"+command.getId()+" is already a "+command.getStatus());
+        AggregateLifecycle.apply(new AccountStatusUpdateEvent(
+                command.getId(),
+                command.getStatus()
+        ));
+    }
+    @EventSourcingHandler
+    public void on(AccountStatusUpdateEvent event){
+        log.info("AccountDebitedEvent occured");
+        this.id =event.getId();
+        this.status=event.getStatus();
     }
 }
