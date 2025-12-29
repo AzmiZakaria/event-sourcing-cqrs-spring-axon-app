@@ -108,3 +108,11 @@ Apres injecter un exemplaire en utisant endpoit add dans swagger
 
 ## Repository
 ![alt text](images/img_11.png)
+## Event Handler
+### AccountEventHandler
+![alt text](images/img_12.png)
+### Run app
+Here when runing the handler will handel the previous events and store data in our DB
+![alt text](images/img_13.png)
+### Postgress table verification
+![alt text](images/img_14.png)
